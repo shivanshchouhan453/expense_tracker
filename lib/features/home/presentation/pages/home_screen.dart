@@ -16,7 +16,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.getDarkTheme().scaffoldBackgroundColor,
       appBar: AppBar(title: Text("Expense Manager"), centerTitle: true),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

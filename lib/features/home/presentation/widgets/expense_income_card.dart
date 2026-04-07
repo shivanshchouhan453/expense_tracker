@@ -1,4 +1,4 @@
-import 'package:expense_tracker/features/home/presentation/widgets/gredient_card.dart';
+import 'package:expense_tracker/core/widgets/gredient_card.dart';
 import 'package:flutter/material.dart';
 
 class ExpenseIncomeCard extends StatelessWidget {
