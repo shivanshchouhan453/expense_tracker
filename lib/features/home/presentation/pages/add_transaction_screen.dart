@@ -1,6 +1,6 @@
 import 'package:expense_tracker/core/utils/image_paths.dart';
 import 'package:expense_tracker/features/home/domain/entities/transaction_entity.dart';
-import 'package:expense_tracker/features/home/presentation/widgets/type_button.dart';
+import 'package:expense_tracker/core/widgets/type_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';

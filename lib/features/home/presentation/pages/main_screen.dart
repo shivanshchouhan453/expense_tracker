@@ -1,7 +1,7 @@
 import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/features/balance_dashboard/presentation/pages/balance_screen.dart';
 import 'package:expense_tracker/features/home/presentation/pages/home_screen.dart';
-import 'package:expense_tracker/features/profile/presentation/profile_screen.dart';
+import 'package:expense_tracker/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

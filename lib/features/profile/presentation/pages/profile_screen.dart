@@ -1,5 +1,6 @@
 import 'package:expense_tracker/core/widgets/gredient_card.dart';
 import 'package:expense_tracker/features/profile/domin/states/theme_provider.dart';
+import 'package:expense_tracker/features/profile/presentation/pages/add_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -170,11 +171,11 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 ElevatedButton.icon(
                   onPressed: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //     builder: (context) => const AddCategoryScreen(),
-                    //   ),
-                    // );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const AddCategoryScreen(),
+                      ),
+                    );
                   },
                   icon: const Icon(Icons.add),
                   label: const Text('Add'),
