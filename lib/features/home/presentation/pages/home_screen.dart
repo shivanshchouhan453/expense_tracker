@@ -1,5 +1,6 @@
 import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/core/utils/image_paths.dart';
+import 'package:expense_tracker/features/home/presentation/pages/add_transaction_screen.dart';
 import 'package:expense_tracker/features/home/presentation/widgets/expense_income_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,6 +18,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Scaffold(
       backgroundColor: AppTheme.getDarkTheme().scaffoldBackgroundColor,
       appBar: AppBar(title: Text("Expense Manager"), centerTitle: true),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AddTransactionScreen(),
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
