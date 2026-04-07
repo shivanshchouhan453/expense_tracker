@@ -292,7 +292,7 @@ class _AddCategoryScreenState extends ConsumerState<AddCategoryScreen> {
     );
   }
 
-  void _saveCategory() {
+  Future<void> _saveCategory() async {
     if (_nameController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please enter a category name')),
@@ -313,12 +313,20 @@ class _AddCategoryScreenState extends ConsumerState<AddCategoryScreen> {
     print("category color is : $_selectedColor");
     print("is it income : $_isIncome");
 
-    if (widget.category == null) {
-      ref.read(addCategoryProvider(category));
-    } else {
-      ref.read(updateCategoryProvider(category));
-    }
+    try {
+      if (widget.category == null) {
+        await ref.read(addCategoryProvider(category).future);
+      } else {
+        await ref.read(updateCategoryProvider(category).future);
+      }
 
-    Navigator.of(context).pop();
+      if (!mounted) return;
+      Navigator.of(context).pop();
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString().replaceFirst('Exception: ', ''))),
+      );
+    }
   }
 }
