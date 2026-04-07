@@ -1,4 +1,4 @@
-import 'package:expense_tracker/storage/hive_services.dart';
+import 'package:expense_tracker/core/storage/hive_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final themeModeProvider = StateProvider<bool>((ref) {

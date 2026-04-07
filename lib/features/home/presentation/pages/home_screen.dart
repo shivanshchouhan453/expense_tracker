@@ -1,4 +1,3 @@
-import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/core/utils/image_paths.dart';
 import 'package:expense_tracker/features/home/presentation/pages/add_transaction_screen.dart';
 import 'package:expense_tracker/features/home/presentation/widgets/expense_income_card.dart';
@@ -16,7 +15,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Expense Manager"), centerTitle: true),
+      appBar: AppBar(title: Text("Expense Tracker"), centerTitle: true),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(

@@ -1,7 +1,7 @@
 import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/features/home/presentation/pages/main_screen.dart';
 import 'package:expense_tracker/features/profile/domin/states/theme_provider.dart';
-import 'package:expense_tracker/storage/hive_services.dart';
+import 'package:expense_tracker/core/storage/hive_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

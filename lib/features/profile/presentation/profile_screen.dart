@@ -13,7 +13,7 @@ class ProfileScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const Text('Expense Tracker'),
         elevation: 0,
         centerTitle: true,
       ),
