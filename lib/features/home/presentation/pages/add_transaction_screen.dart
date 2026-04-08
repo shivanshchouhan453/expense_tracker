@@ -334,7 +334,7 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
     );
   }
 
-  void _saveTransaction() {
+  Future<void> _saveTransaction() async {
     if (_amountController.text.isEmpty) {
       ScaffoldMessenger.of(
         context,
@@ -360,12 +360,21 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
       recurringType: _isRecurring ? _recurringType : null,
     );
 
-    if (widget.transaction == null) {
-      ref.read(addTransactionProvider(transaction));
-    } else {
-      ref.read(updateTransactionProvider(transaction));
-    }
+    try {
+      if (widget.transaction == null) {
+        await ref.read(addTransactionProvider(transaction).future);
+      } else {
+        await ref.read(updateTransactionProvider(transaction).future);
+      }
 
-    Navigator.of(context).pop();
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Failed to save transaction: $error')));
+    }
   }
 }

@@ -48,13 +48,10 @@ final addTransactionProvider = FutureProvider.family<void, TransactionEntity>((
 ) async {
   final repo = ref.watch(transactionRepositoryProvider);
   await repo.addTransaction(transaction);
-  // Invalidate related providers
   ref.invalidate(watchTransactionsProvider);
   ref.invalidate(allTransactionsProvider);
   ref.invalidate(
-    watchTransactionsByMonthProvider(
-      DateTime(transaction.date.year, transaction.date.month),
-    ),
+    transactionsByMonthProvider(DateTime(transaction.date.year, transaction.date.month)),
   );
 });
 
@@ -65,6 +62,11 @@ final updateTransactionProvider =
       await repo.updateTransaction(transaction);
       ref.invalidate(watchTransactionsProvider);
       ref.invalidate(allTransactionsProvider);
+      ref.invalidate(
+        transactionsByMonthProvider(
+          DateTime(transaction.date.year, transaction.date.month),
+        ),
+      );
     });
 
 // Delete transaction
@@ -86,22 +88,22 @@ final currentMonthProvider = StateProvider<DateTime>((ref) {
 
 // Monthly summary
 final monthlySummaryProvider =
-    FutureProvider<({double income, double expense})>((ref) async {
+    Provider<AsyncValue<({double income, double expense})>>((ref) {
       final month = ref.watch(currentMonthProvider);
-      final transactions = await ref.watch(
-        transactionsByMonthProvider(month).future,
-      );
+      final transactionsAsync = ref.watch(watchTransactionsByMonthProvider(month));
 
-      double income = 0;
-      double expense = 0;
+      return transactionsAsync.whenData((transactions) {
+        double income = 0;
+        double expense = 0;
 
-      for (final t in transactions) {
-        if (t.isIncome) {
-          income += t.amount;
-        } else {
-          expense += t.amount;
+        for (final t in transactions) {
+          if (t.isIncome) {
+            income += t.amount;
+          } else {
+            expense += t.amount;
+          }
         }
-      }
 
-      return (income: income, expense: expense);
+        return (income: income, expense: expense);
+      });
     });
