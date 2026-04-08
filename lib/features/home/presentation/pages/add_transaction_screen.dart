@@ -1,10 +1,12 @@
 import 'package:expense_tracker/core/utils/image_paths.dart';
 import 'package:expense_tracker/features/home/domain/entities/transaction_entity.dart';
 import 'package:expense_tracker/core/widgets/type_button.dart';
+import 'package:expense_tracker/features/home/presentation/providers/transaction_provider.dart';
 import 'package:expense_tracker/features/profile/presentation/providers/category_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 
 class AddTransactionScreen extends ConsumerStatefulWidget {
   final TransactionEntity? transaction;
@@ -347,22 +349,22 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
       return;
     }
 
-    // final transaction = TransactionEntity(
-    //   id: widget.transaction?.id ?? const Uuid().v4(),
-    //   amount: double.parse(_amountController.text),
-    //   categoryId: _selectedCategoryId,
-    //   date: _selectedDate,
-    //   note: _noteController.text,
-    //   isIncome: _isIncome,
-    //   isRecurring: _isRecurring,
-    //   recurringType: _isRecurring ? _recurringType : null,
-    // );
+    final transaction = TransactionEntity(
+      id: widget.transaction?.id ?? const Uuid().v4(),
+      amount: double.parse(_amountController.text),
+      categoryId: _selectedCategoryId,
+      date: _selectedDate,
+      note: _noteController.text,
+      isIncome: _isIncome,
+      isRecurring: _isRecurring,
+      recurringType: _isRecurring ? _recurringType : null,
+    );
 
-    // if (widget.transaction == null) {
-    //   ref.read(addTransactionProvider(transaction));
-    // } else {
-    //   ref.read(updateTransactionProvider(transaction));
-    // }
+    if (widget.transaction == null) {
+      ref.read(addTransactionProvider(transaction));
+    } else {
+      ref.read(updateTransactionProvider(transaction));
+    }
 
     Navigator.of(context).pop();
   }
