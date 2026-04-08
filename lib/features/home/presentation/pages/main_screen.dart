@@ -1,6 +1,7 @@
 import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/features/balance_dashboard/presentation/pages/balance_screen.dart';
 import 'package:expense_tracker/features/home/presentation/pages/home_screen.dart';
+import 'package:expense_tracker/features/home/presentation/providers/init_provider.dart';
 import 'package:expense_tracker/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,7 +39,7 @@ class _MainScreenState extends ConsumerState<MainScreen>
   @override
   Widget build(BuildContext context) {
     // Initialize default categories
-    // ref.watch(initializeAppProvider);
+    ref.watch(initializeAppProvider);
 
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: _screens),
