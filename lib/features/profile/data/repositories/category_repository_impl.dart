@@ -69,7 +69,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Stream<List<CategoryEntity>> watchCategories() {
     try {
       final box = HiveService.getCategoryBox();
-      return box.watch().map((_) => box.values.toList());
+      return (() async* {
+        yield box.values.toList();
+        yield* box.watch().map((_) => box.values.toList());
+      })();
     } catch (e) {
       throw Exception('Failed to watch categories: $e');
     }

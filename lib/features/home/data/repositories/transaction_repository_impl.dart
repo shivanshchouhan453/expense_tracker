@@ -48,6 +48,9 @@ class TransactionRepositoryImpl implements TransactionRepository {
   @override
   Stream<List<TransactionEntity>> watchTransactions() {
     final box = HiveService.getTransactionBox();
-    return box.watch().map((_) => box.values.toList());
+    return (() async* {
+      yield box.values.toList();
+      yield* box.watch().map((_) => box.values.toList());
+    })();
   }
 }
