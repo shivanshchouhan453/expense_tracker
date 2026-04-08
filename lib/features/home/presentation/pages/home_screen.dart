@@ -242,7 +242,7 @@ class _TransactionTile extends StatelessWidget {
 
           // Amount
           Text(
-            '${transaction.isIncome ? '+' : '-'}\$${transaction.amount.toStringAsFixed(2)}',
+            '${transaction.isIncome ? '+' : '-'}₹${transaction.amount.toStringAsFixed(2)}',
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
               color: transaction.isIncome ? Colors.green : Colors.red,

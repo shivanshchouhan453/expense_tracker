@@ -23,9 +23,9 @@ class WeeklyBarChart extends StatelessWidget {
       final suffix = compactValue % 1 == 0
           ? compactValue.toStringAsFixed(0)
           : compactValue.toStringAsFixed(1);
-      return '\$${suffix}K';
+      return '₹${suffix}K';
     }
-    return '\$${value.toInt()}';
+    return '₹${value.toInt()}';
   }
 
   @override

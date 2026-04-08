@@ -142,7 +142,7 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
 
                 // Amount
                 Text(
-                  'Amount (USD)',
+                  'Amount (Rupee)',
                   style: Theme.of(
                     context,
                   ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
@@ -153,7 +153,7 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: '0.00',
-                    prefix: const Text('\$ '),
+                    prefix: const Text('₹ '),
                   ),
                 ),
                 const SizedBox(height: 24),

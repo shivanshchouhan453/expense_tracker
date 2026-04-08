@@ -68,7 +68,7 @@ class CategoryTiles extends StatelessWidget {
                 ),
               ),
               Text(
-                '\$${amount.toStringAsFixed(2)}',
+                '₹${amount.toStringAsFixed(2)}',
                 style: Theme.of(
                   context,
                 ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
