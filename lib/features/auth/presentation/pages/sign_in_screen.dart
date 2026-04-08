@@ -94,39 +94,15 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
                 // Logo & Title
                 Center(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              AppTheme.gradientStart,
-                              AppTheme.gradientEnd,
-                            ],
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.gradientStart.withOpacity(0.3),
-                              blurRadius: 20,
-                              offset: const Offset(0, 10),
-                            ),
-                          ],
-                        ),
-                        child: const Center(
-                          child: Text('💰', style: TextStyle(fontSize: 40)),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
                       const Text(
-                        'Finance Manager',
+                        'Expense Tracker',
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
@@ -272,12 +248,12 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                               end: Alignment.bottomRight,
                               colors: _isLoading
                                   ? [
-                                      AppTheme.gradientStart.withOpacity(0.6),
-                                      AppTheme.gradientEnd.withOpacity(0.6),
+                                      AppTheme.gradientStart,
+                                      AppTheme.gradientStart,
                                     ]
                                   : [
                                       AppTheme.gradientStart,
-                                      AppTheme.gradientEnd,
+                                      AppTheme.gradientStart,
                                     ],
                             ),
                             borderRadius: BorderRadius.circular(12),

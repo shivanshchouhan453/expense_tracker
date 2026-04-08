@@ -74,7 +74,7 @@ class _SplashScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const Text(
-                'Finance Manager',
+                'Expense Tracker',
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,

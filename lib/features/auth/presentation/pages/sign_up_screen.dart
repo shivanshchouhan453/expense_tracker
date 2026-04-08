@@ -20,7 +20,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   bool _isPasswordHidden = true;
   bool _isConfirmPasswordHidden = true;
   bool _isLoading = false;
-  bool _agreeToTerms = false;
 
   @override
   void dispose() {
@@ -33,16 +32,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
   Future<void> _signUp() async {
     if (!_formKey.currentState!.validate()) return;
-    if (!_agreeToTerms) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please agree to terms and conditions'),
-          backgroundColor: Colors.redAccent,
-        ),
-      );
-      return;
-    }
-
     setState(() => _isLoading = true);
 
     try {
@@ -100,35 +89,11 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
                 // Logo & Title
                 Center(
                   child: Column(
                     children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              AppTheme.gradientStart,
-                              AppTheme.gradientEnd,
-                            ],
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.gradientStart.withOpacity(0.3),
-                              blurRadius: 20,
-                              offset: const Offset(0, 10),
-                            ),
-                          ],
-                        ),
-                        child: const Center(
-                          child: Text('💰', style: TextStyle(fontSize: 40)),
-                        ),
-                      ),
                       const SizedBox(height: 16),
                       const Text(
                         'Create Account',
@@ -140,7 +105,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Join Finance Manager today',
+                        'Join Expense Tracker today',
                         style: TextStyle(
                           fontSize: 16,
                           color: AppTheme.darkTextSecondary,
@@ -372,62 +337,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       ),
                       const SizedBox(height: 20),
 
-                      // Terms & Conditions
-                      GestureDetector(
-                        onTap: () {
-                          setState(() => _agreeToTerms = !_agreeToTerms);
-                        },
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: _agreeToTerms
-                                      ? AppTheme.gradientStart
-                                      : AppTheme.darkCard,
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.circular(4),
-                                color: _agreeToTerms
-                                    ? AppTheme.gradientStart.withOpacity(0.2)
-                                    : Colors.transparent,
-                              ),
-                              child: _agreeToTerms
-                                  ? const Icon(
-                                      Icons.check,
-                                      color: AppTheme.gradientStart,
-                                      size: 16,
-                                    )
-                                  : null,
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: RichText(
-                                text: TextSpan(
-                                  text: 'I agree to ',
-                                  style: const TextStyle(
-                                    color: AppTheme.darkTextSecondary,
-                                    fontSize: 13,
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                      text: 'Terms & Conditions',
-                                      style: const TextStyle(
-                                        color: AppTheme.gradientStart,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-
                       // Sign Up Button
                       GestureDetector(
                         onTap: _isLoading ? null : _signUp,
@@ -440,12 +349,12 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                               end: Alignment.bottomRight,
                               colors: _isLoading
                                   ? [
-                                      AppTheme.gradientStart.withOpacity(0.6),
-                                      AppTheme.gradientEnd.withOpacity(0.6),
+                                      AppTheme.gradientStart,
+                                      AppTheme.gradientStart,
                                     ]
                                   : [
                                       AppTheme.gradientStart,
-                                      AppTheme.gradientEnd,
+                                      AppTheme.gradientStart,
                                     ],
                             ),
                             borderRadius: BorderRadius.circular(12),
