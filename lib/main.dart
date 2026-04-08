@@ -1,4 +1,7 @@
 import 'package:expense_tracker/core/theme/theme.dart';
+import 'package:expense_tracker/features/auth/presentation/pages/auth_gate.dart';
+import 'package:expense_tracker/features/auth/presentation/pages/sign_in_screen.dart';
+import 'package:expense_tracker/features/auth/presentation/pages/sign_up_screen.dart';
 import 'package:expense_tracker/features/home/presentation/pages/main_screen.dart';
 import 'package:expense_tracker/features/profile/domin/states/theme_provider.dart';
 import 'package:expense_tracker/core/storage/hive_services.dart';
@@ -24,7 +27,12 @@ class MyApp extends ConsumerWidget {
       theme: AppTheme.getLightTheme(),
       darkTheme: AppTheme.getDarkTheme(),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      home: MainScreen(),
+      home: AuthGate(),
+      routes: {
+        '/home': (context) => const MainScreen(),
+        '/sign-in': (context) => const SignInScreen(),
+        '/sign-up': (context) => const SignUpScreen(),
+      },
     );
   }
 }
