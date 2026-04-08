@@ -19,11 +19,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final transactionsAsync = ref.watch(
-      watchTransactionsByMonthProvider(
-        DateTime(DateTime.now().year, DateTime.now().month),
-      ),
-    );
+    final transactionsAsync = ref.watch(watchTransactionsProvider);
     final categoriesAsync = ref.watch(watchCategoriesProvider);
 
     return Scaffold(
@@ -219,7 +215,9 @@ class _TransactionTile extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                 Text(
-                  DateFormat('MMM d, yyyy').format(transaction.date),
+                  DateFormat(
+                    'MMM d, yyyy hh:mm a',
+                  ).format(transaction.date.toLocal()),
                   style: Theme.of(
                     context,
                   ).textTheme.bodySmall?.copyWith(color: Colors.grey),
