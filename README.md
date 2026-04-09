@@ -49,6 +49,12 @@ A beautiful and intuitive Flutter application designed to help users track their
 ## Screenshots 📱
 
 ### Authentication Screens
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <img src="assets/screenshots/signup_page.jpg" alt="Sign Up Screen" width="200" />
+  <img src="assets/screenshots/singin_page.jpg" alt="Sign In Screen" width="200" />
+</div>
+
 The app includes secure authentication features with:
 - **Sign Up Screen**: User registration interface
 - **Sign In Screen**: User login interface
@@ -57,11 +63,20 @@ The app includes secure authentication features with:
 ### Main Application Screens
 
 #### Home Screen
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <img src="assets/screenshots/home_page_without_transaction.jpg" alt="Home Screen (Empty)" width="200" />
+  <img src="assets/screenshots/home_page_with_transcation.jpg" alt="Home Screen (With Transactions)" width="200" />
+</div>
+
 - Display transaction list with all recorded expenses
 - Quick access to add new transactions
 - View transaction details and history
 
 #### Add Transaction Screen
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <img src="assets/screenshots/add_transaction_page.jpg" alt="Add Transaction Screen" width="200" />
+</div>
+
 - Intuitive form to input expense details:
   - Amount field
   - Category selector with category icons
@@ -69,13 +84,30 @@ The app includes secure authentication features with:
   - Description/notes field
   - Save or cancel options
 
-#### Balance Dashboard
+#### Categories Management
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <img src="assets/screenshots/categories.jpg" alt="Categories Screen" width="200" />
+  <img src="assets/screenshots/add_category_page.jpg" alt="Add Category Screen" width="200" />
+</div>
+
+
+#### Balance Dashboard & Analytics
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <img src="assets/screenshots/balance_page.jpg" alt="Balance Dashboard" width="200" />
+  <img src="assets/screenshots/bar_chats_analysis.jpg" alt="Bar Charts Analysis" width="200" />
+</div>
+
 - Summary of total expenses
 - Category-wise breakdown
 - Visual charts showing spending distribution
 - Financial overview and analytics
 
 #### Profile Screen
+<div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+  <img src="assets/screenshots/see_profile.jpg" alt="Profile Screen" width="200" />
+  <img src="assets/screenshots/edit_profile.jpg" alt="Edit Profile Screen" width="200" />
+</div>
+
 - User account information
 - Theme toggle (Light/Dark mode)
 - App settings and preferences
