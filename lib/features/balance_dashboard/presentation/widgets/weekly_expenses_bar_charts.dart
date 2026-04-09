@@ -30,7 +30,6 @@ class WeeklyBarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Group transactions by day of week
     final now = _dateOnly(DateTime.now());
     final weekStart = now.subtract(Duration(days: now.weekday - 1));
     final dailyExpenses = <int, double>{};

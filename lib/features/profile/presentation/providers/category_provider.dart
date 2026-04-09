@@ -2,19 +2,19 @@ import 'package:expense_tracker/features/profile/domin/entities/category_entity.
 import 'package:expense_tracker/features/profile/presentation/providers/category_repo_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Get all categories
+// Get all categories provider
 final allCategoriesProvider = FutureProvider<List<CategoryEntity>>((ref) async {
   final repo = ref.watch(categoryRepositoryProvider);
   return repo.getAllCategories();
 });
 
-// Watch all categories
+// Watch all categories provider
 final watchCategoriesProvider = StreamProvider<List<CategoryEntity>>((ref) {
   final repo = ref.watch(categoryRepositoryProvider);
   return repo.watchCategories();
 });
 
-// Get expense categories
+// Get expense categories provider
 final expenseCategoriesProvider = FutureProvider<List<CategoryEntity>>((
   ref,
 ) async {
@@ -22,7 +22,7 @@ final expenseCategoriesProvider = FutureProvider<List<CategoryEntity>>((
   return repo.getExpenseCategories();
 });
 
-// Get income categories
+// Get income categories provider
 final incomeCategoriesProvider = FutureProvider<List<CategoryEntity>>((
   ref,
 ) async {
@@ -30,7 +30,7 @@ final incomeCategoriesProvider = FutureProvider<List<CategoryEntity>>((
   return repo.getIncomeCategories();
 });
 
-// Add category
+// Add category provider
 final addCategoryProvider = FutureProvider.family<void, CategoryEntity>((
   ref,
   category,
@@ -43,7 +43,7 @@ final addCategoryProvider = FutureProvider.family<void, CategoryEntity>((
   ref.invalidate(incomeCategoriesProvider);
 });
 
-// Update category
+// Update category provider
 final updateCategoryProvider = FutureProvider.family<void, CategoryEntity>((
   ref,
   category,
@@ -54,7 +54,7 @@ final updateCategoryProvider = FutureProvider.family<void, CategoryEntity>((
   ref.invalidate(allCategoriesProvider);
 });
 
-// Delete category
+// Delete category provider
 final deleteCategoryProvider = FutureProvider.family<void, String>((
   ref,
   id,

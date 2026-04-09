@@ -12,12 +12,12 @@ class HiveService {
   static Future<void> init() async {
     await Hive.initFlutter();
 
-    // Register adapters
+    // register adapters
     Hive.registerAdapter(TransactionEntityAdapter());
     Hive.registerAdapter(CategoryEntityAdapter());
     Hive.registerAdapter(UserEntityAdapter());
 
-    // Open boxes
+    // open boxes to get the access of boxes
     await Hive.openBox<TransactionEntity>(transactionBoxName);
     await Hive.openBox<CategoryEntity>(categoryBoxName);
     await Hive.openBox(settingsBoxName);

@@ -27,7 +27,6 @@ class ExpenseIncomeCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Text(icon, style: const TextStyle(fontSize: 24)),
           Image.asset(iconPath, height: 24),
           const SizedBox(height: 8),
           Text(

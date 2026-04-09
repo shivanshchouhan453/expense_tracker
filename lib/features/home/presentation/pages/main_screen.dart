@@ -38,7 +38,7 @@ class _MainScreenState extends ConsumerState<MainScreen>
 
   @override
   Widget build(BuildContext context) {
-    // Initialize default categories
+    // Initialize default categories initally
     ref.watch(initializeAppProvider);
 
     return Scaffold(

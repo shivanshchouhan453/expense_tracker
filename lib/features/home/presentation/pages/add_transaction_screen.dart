@@ -111,7 +111,7 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Type Toggle
+                // Type
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.surface,
@@ -250,55 +250,6 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
                   decoration: const InputDecoration(hintText: 'Add a note...'),
                 ),
                 const SizedBox(height: 24),
-
-                // Recurring
-                // CheckboxListTile(
-                //   value: _isRecurring,
-                //   onChanged: (value) {
-                //     setState(() => _isRecurring = value ?? false);
-                //   },
-                //   title: const Text('Recurring Transaction?'),
-                //   controlAffinity: ListTileControlAffinity.leading,
-                // ),
-                // if (_isRecurring) ...[
-                //   const SizedBox(height: 12),
-                //   Text(
-                //     'Frequency',
-                //     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                //       fontWeight: FontWeight.w600,
-                //     ),
-                //   ),
-                //   const SizedBox(height: 8),
-                //   Container(
-                //     decoration: BoxDecoration(
-                //       color: Theme.of(context).colorScheme.surface,
-                //       borderRadius: BorderRadius.circular(12),
-                //     ),
-                //     padding: const EdgeInsets.symmetric(horizontal: 12),
-                //     child: DropdownButton<String>(
-                //       value: _recurringType,
-                //       isExpanded: true,
-                //       underline: const SizedBox.shrink(),
-                //       items: const [
-                //         DropdownMenuItem(value: 'daily', child: Text('Daily')),
-                //         DropdownMenuItem(
-                //           value: 'weekly',
-                //           child: Text('Weekly'),
-                //         ),
-                //         DropdownMenuItem(
-                //           value: 'monthly',
-                //           child: Text('Monthly'),
-                //         ),
-                //       ],
-                //       onChanged: (value) {
-                //         if (value != null) {
-                //           setState(() => _recurringType = value);
-                //         }
-                //       },
-                //     ),
-                //   ),
-                // ],
-                const SizedBox(height: 32),
 
                 // Save Button
                 SizedBox(

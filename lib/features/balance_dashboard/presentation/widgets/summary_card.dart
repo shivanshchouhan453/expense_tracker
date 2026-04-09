@@ -46,7 +46,7 @@ class SummaryCard extends StatelessWidget {
           ),
           const SizedBox(height: 24),
 
-          // Stats Row
+          // show income and expense
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

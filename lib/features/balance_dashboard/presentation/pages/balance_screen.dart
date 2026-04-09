@@ -69,7 +69,7 @@ class _BalanceScreenState extends ConsumerState<BalanceScreen> {
                           balance: balance,
                         ),
                         const SizedBox(height: 24),
-                        // Pie Chart
+                        // Pie Chart for anlysis
                         if (transactions.isNotEmpty &&
                             expensesByCategory.isNotEmpty)
                           Column(
@@ -88,7 +88,7 @@ class _BalanceScreenState extends ConsumerState<BalanceScreen> {
                             ],
                           ),
 
-                        // Category Breakdown
+                        // Category Breakdown of several categories
                         Text(
                           'Category Breakdown',
                           style: Theme.of(context).textTheme.titleLarge,
@@ -128,7 +128,7 @@ class _BalanceScreenState extends ConsumerState<BalanceScreen> {
                           ),
                         const SizedBox(height: 24),
 
-                        // Weekly Bar Chart
+                        // Weekly Bar Chart for weekly anlysis
                         if (transactions.isNotEmpty)
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

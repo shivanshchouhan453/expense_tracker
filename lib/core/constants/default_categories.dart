@@ -3,7 +3,7 @@ import 'package:expense_tracker/features/profile/domin/entities/category_entity.
 class DefaultCategories {
   static List<CategoryEntity> getDefaultCategories() {
     return [
-      // Expense categories
+      //  expense default categiores
       CategoryEntity(
         id: 'food',
         name: 'Food & Dining',
@@ -60,7 +60,7 @@ class DefaultCategories {
         color: '#F97316',
         isIncome: false,
       ),
-      // Income categories
+      // income default categiores
       CategoryEntity(
         id: 'salary',
         name: 'Salary',

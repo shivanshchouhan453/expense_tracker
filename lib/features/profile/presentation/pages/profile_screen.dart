@@ -150,7 +150,7 @@ class ProfileScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 12),
 
-                // Dark Mode Toggle
+                // Dark Mode Toggle Switch button
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(

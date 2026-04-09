@@ -90,7 +90,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
-                // Logo & Title
                 Center(
                   child: Column(
                     children: [
@@ -394,7 +393,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   ),
                 ),
 
-                // Sign In Link
+                // Sign In navigation on tap
                 Center(
                   child: RichText(
                     text: TextSpan(

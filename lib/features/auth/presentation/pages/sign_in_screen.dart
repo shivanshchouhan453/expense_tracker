@@ -95,7 +95,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.15),
-                // Logo & Title
+                // App Title
                 Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -122,7 +122,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.06),
 
-                // Form
+                // Form to get the email, password...
                 Form(
                   key: _formKey,
                   child: Column(
@@ -294,7 +294,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.06),
 
-                // Sign Up Link
+                // Navigate to signup on click button
                 Center(
                   child: RichText(
                     text: TextSpan(

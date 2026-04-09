@@ -24,7 +24,8 @@ class AuthGate extends ConsumerWidget {
       },
       loading: () => const _SplashScreen(),
       error: (error, stackTrace) {
-        // On error, show sign in screen
+        // on error , show the signin screen
+        print("error on auth check : $error");
         return const SignInScreen();
       },
     );
@@ -49,7 +50,6 @@ class _SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo
               Container(
                 width: 100,
                 height: 100,
@@ -91,7 +91,6 @@ class _SplashScreen extends StatelessWidget {
               ),
               const SizedBox(height: 48),
 
-              // Loading indicator
               SizedBox(
                 width: 50,
                 height: 50,

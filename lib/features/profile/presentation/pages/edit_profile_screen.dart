@@ -151,7 +151,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
               ),
               const SizedBox(height: 20),
 
-              // Email (Read-only)
+              // Email
               const Text(
                 'Email',
                 style: TextStyle(
@@ -225,13 +225,13 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                 ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return null; // Phone is optional
+                    return null;
                   }
 
-                  // Remove any spaces or dashes
+                  // added for removing the space and -
                   final cleanedPhone = value.replaceAll(RegExp(r'[\s\-]'), '');
 
-                  // Check if it's a valid phone number (10-13 digits, starting with optional +)
+                  // regex for number validation
                   if (!RegExp(r'^\+?[0-9]{10,13}$').hasMatch(cleanedPhone)) {
                     return 'Please enter a valid phone number (10-13 digits)';
                   }

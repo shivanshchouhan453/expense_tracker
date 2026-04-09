@@ -2,7 +2,7 @@ import 'package:expense_tracker/features/home/domain/entities/transaction_entity
 import 'package:expense_tracker/features/home/presentation/providers/transaction_repo_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-// Get all transactions
+// Get all transactions provider
 final allTransactionsProvider = FutureProvider<List<TransactionEntity>>((
   ref,
 ) async {
@@ -10,7 +10,7 @@ final allTransactionsProvider = FutureProvider<List<TransactionEntity>>((
   return repo.getAllTransactions();
 });
 
-// Watch all transactions
+// Watch all transactions provider
 final watchTransactionsProvider = StreamProvider<List<TransactionEntity>>((
   ref,
 ) {
@@ -18,7 +18,7 @@ final watchTransactionsProvider = StreamProvider<List<TransactionEntity>>((
   return repo.watchTransactions();
 });
 
-// Get transactions by month
+// Get transactions by month provider
 final transactionsByMonthProvider =
     FutureProvider.family<List<TransactionEntity>, DateTime>((
       ref,
@@ -28,7 +28,7 @@ final transactionsByMonthProvider =
       return repo.getTransactionsByMonth(month);
     });
 
-// Watch transactions by month
+// Watch transactions by month provider
 final watchTransactionsByMonthProvider =
     StreamProvider.family<List<TransactionEntity>, DateTime>((ref, month) {
       final repo = ref.watch(transactionRepositoryProvider);
@@ -41,7 +41,7 @@ final watchTransactionsByMonthProvider =
       });
     });
 
-// Add transaction
+// Add transaction provider
 final addTransactionProvider = FutureProvider.family<void, TransactionEntity>((
   ref,
   transaction,
@@ -51,11 +51,13 @@ final addTransactionProvider = FutureProvider.family<void, TransactionEntity>((
   ref.invalidate(watchTransactionsProvider);
   ref.invalidate(allTransactionsProvider);
   ref.invalidate(
-    transactionsByMonthProvider(DateTime(transaction.date.year, transaction.date.month)),
+    transactionsByMonthProvider(
+      DateTime(transaction.date.year, transaction.date.month),
+    ),
   );
 });
 
-// Update transaction
+// Update transaction provider
 final updateTransactionProvider =
     FutureProvider.family<void, TransactionEntity>((ref, transaction) async {
       final repo = ref.watch(transactionRepositoryProvider);
@@ -69,7 +71,7 @@ final updateTransactionProvider =
       );
     });
 
-// Delete transaction
+// Delete transaction provider
 final deleteTransactionProvider = FutureProvider.family<void, String>((
   ref,
   id,
@@ -86,11 +88,13 @@ final currentMonthProvider = StateProvider<DateTime>((ref) {
   return DateTime(now.year, now.month);
 });
 
-// Monthly summary
+// Monthly summary provider
 final monthlySummaryProvider =
     Provider<AsyncValue<({double income, double expense})>>((ref) {
       final month = ref.watch(currentMonthProvider);
-      final transactionsAsync = ref.watch(watchTransactionsByMonthProvider(month));
+      final transactionsAsync = ref.watch(
+        watchTransactionsByMonthProvider(month),
+      );
 
       return transactionsAsync.whenData((transactions) {
         double income = 0;
