@@ -198,58 +198,6 @@ flutter run
 
 ---
 
-## Project Structure 📁
-
-```
-lib/
-├── main.dart                          # App entry point
-├── core/
-│   ├── constants/                     # App constants
-│   ├── storage/
-│   │   └── hive_services.dart        # Hive database initialization
-│   ├── theme/
-│   │   └── theme.dart               # Theme configurations
-│   ├── utils/                        # Utility functions
-│   └── widgets/                      # Reusable widgets
-├── features/
-│   ├── auth/                         # Authentication feature
-│   │   └── presentation/
-│   │       └── pages/
-│   │           ├── auth_gate.dart   # Route based on auth state
-│   │           ├── sign_in_screen.dart
-│   │           └── sign_up_screen.dart
-│   ├── home/                         # Home/Transactions feature
-│   │   └── presentation/
-│   │       └── pages/
-│   │           ├── main_screen.dart
-│   │           └── add_transaction_screen.dart
-│   ├── balance_dashboard/            # Dashboard/Analytics feature
-│   └── profile/                      # User profile feature
-├── assets/
-│   ├── icons/
-│   │   └── category_icons/          # Category-specific icons
-│   └── images/                       # App images
-```
-
-## Architecture
-
-The app follows **Clean Architecture** principles:
-
-```
-features/
-├── domain/              # Business logic and entities
-├── presentation/        # UI and state management
-└── data/               # Data sources and repositories
-```
-
-This structure ensures:
-- **Separation of Concerns**: Clear boundaries between layers
-- **Testability**: Easy to test individual components
-- **Maintainability**: Easy to modify and extend features
-- **Reusability**: Components can be reused across features
-
----
-
 ## Dependencies Overview
 
 | Package | Version | Purpose |
