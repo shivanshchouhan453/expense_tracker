@@ -1,5 +1,6 @@
 import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/core/utils/color_utils.dart';
+import 'package:expense_tracker/core/widgets/build_icon_widget.dart';
 import 'package:flutter/material.dart';
 
 class CategoryTiles extends StatelessWidget {
@@ -42,9 +43,10 @@ class CategoryTiles extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text(
-                  category?.icon ?? '💰',
-                  style: const TextStyle(fontSize: 20),
+                child: SizedBox(
+                  width: 32,
+                  height: 32,
+                  child: buildIconWidget(category?.icon ?? '💰'),
                 ),
               ),
               const SizedBox(width: 12),

@@ -1,6 +1,7 @@
 import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/core/utils/color_utils.dart';
 import 'package:expense_tracker/core/utils/image_paths.dart';
+import 'package:expense_tracker/core/widgets/build_icon_widget.dart';
 import 'package:expense_tracker/features/auth/presentation/provider/auth_provider.dart';
 import 'package:expense_tracker/features/home/presentation/pages/add_transaction_screen.dart';
 import 'package:expense_tracker/features/home/presentation/providers/transaction_provider.dart';
@@ -203,9 +204,10 @@ class _TransactionTile extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Text(
-              category?.icon ?? '💰',
-              style: const TextStyle(fontSize: 20),
+            child: SizedBox(
+              width: 32,
+              height: 32,
+              child: buildIconWidget(category?.icon ?? '💰'),
             ),
           ),
           const SizedBox(width: 12),

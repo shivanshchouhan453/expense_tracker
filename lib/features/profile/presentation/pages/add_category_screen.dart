@@ -23,30 +23,30 @@ class _AddCategoryScreenState extends ConsumerState<AddCategoryScreen> {
   late bool _isIncome;
 
   static const List<String> icons = [
-    '🍔',
-    '🚗',
-    '🎬',
-    '🛍️',
-    '💡',
-    '🏥',
-    '📚',
-    '✈️',
-    '💼',
-    '💻',
-    '📈',
-    '🎁',
-    '🎮',
-    '🏋️',
-    '🎵',
-    '🎨',
-    '🌮',
-    '🏠',
-    '💳',
-    '🚀',
-    '📱',
-    '⚡',
-    '🌍',
-    '🎓',
+    'assets/icons/category_icons/fast_food.png',
+    'assets/icons/category_icons/sport_car.png',
+    'assets/icons/category_icons/clapperboard.png',
+    'assets/icons/category_icons/online_shopping.png',
+    'assets/icons/category_icons/idea.png',
+    'assets/icons/category_icons/hospital.png',
+    'assets/icons/category_icons/books.png',
+    'assets/icons/category_icons/airplane.png',
+    'assets/icons/category_icons/briefcase.png',
+    'assets/icons/category_icons/programming.png',
+    'assets/icons/category_icons/stock.png',
+    'assets/icons/category_icons/giftbox.png',
+    'assets/icons/category_icons/gamepad.png',
+    'assets/icons/category_icons/excercise.png',
+    'assets/icons/category_icons/musical_note.png',
+    'assets/icons/category_icons/color_palette.png',
+    'assets/icons/category_icons/bread.png',
+    'assets/icons/category_icons/house.png',
+    'assets/icons/category_icons/credit_card.png',
+    'assets/icons/category_icons/rocket.png',
+    'assets/icons/category_icons/smartphone.png',
+    'assets/icons/category_icons/flash.png',
+    'assets/icons/category_icons/planet_earth.png',
+    'assets/icons/category_icons/graduation_hat.png',
   ];
 
   static const List<String> colors = [
@@ -172,6 +172,7 @@ class _AddCategoryScreenState extends ConsumerState<AddCategoryScreen> {
                   return GestureDetector(
                     onTap: () => setState(() => _selectedIcon = icon),
                     child: Container(
+                      padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: isSelected
@@ -182,7 +183,7 @@ class _AddCategoryScreenState extends ConsumerState<AddCategoryScreen> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
-                        child: Text(icon, style: const TextStyle(fontSize: 28)),
+                        child: Image.asset(icon, fit: BoxFit.contain),
                       ),
                     ),
                   );
@@ -250,7 +251,11 @@ class _AddCategoryScreenState extends ConsumerState<AddCategoryScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(_selectedIcon, style: const TextStyle(fontSize: 32)),
+                  SizedBox(
+                    width: 48,
+                    height: 48,
+                    child: Image.asset(_selectedIcon, fit: BoxFit.contain),
+                  ),
                   const SizedBox(width: 16),
                   Text(
                     _nameController.text.isEmpty

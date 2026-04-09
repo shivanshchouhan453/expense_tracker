@@ -223,6 +223,21 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                     ),
                   ),
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return null; // Phone is optional
+                  }
+
+                  // Remove any spaces or dashes
+                  final cleanedPhone = value.replaceAll(RegExp(r'[\s\-]'), '');
+
+                  // Check if it's a valid phone number (10-13 digits, starting with optional +)
+                  if (!RegExp(r'^\+?[0-9]{10,13}$').hasMatch(cleanedPhone)) {
+                    return 'Please enter a valid phone number (10-13 digits)';
+                  }
+
+                  return null;
+                },
               ),
               const SizedBox(height: 20),
 

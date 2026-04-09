@@ -1,4 +1,5 @@
 import 'package:expense_tracker/core/utils/color_utils.dart';
+import 'package:expense_tracker/core/widgets/build_icon_widget.dart';
 import 'package:expense_tracker/features/profile/presentation/pages/add_category_screen.dart';
 import 'package:expense_tracker/features/profile/presentation/providers/category_provider.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,11 @@ class CategoryItem extends ConsumerWidget {
                 color: ColorUtils.parse(category.color),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Text(category.icon, style: const TextStyle(fontSize: 24)),
+              child: SizedBox(
+                width: 40,
+                height: 40,
+                child: buildIconWidget(category.icon),
+              ),
             ),
             const SizedBox(height: 8),
             Text(

@@ -1,4 +1,5 @@
 import 'package:expense_tracker/core/utils/image_paths.dart';
+import 'package:expense_tracker/core/widgets/build_icon_widget.dart';
 import 'package:expense_tracker/features/home/domain/entities/transaction_entity.dart';
 import 'package:expense_tracker/core/widgets/type_button.dart';
 import 'package:expense_tracker/features/home/presentation/providers/transaction_provider.dart';
@@ -182,10 +183,7 @@ class _AddTransactionScreenState extends ConsumerState<AddTransactionScreen> {
                         value: category.id,
                         child: Row(
                           children: [
-                            Text(
-                              category.icon,
-                              style: const TextStyle(fontSize: 20),
-                            ),
+                            buildIconWidget(category.icon),
                             const SizedBox(width: 8),
                             Text(category.name),
                           ],
