@@ -1,5 +1,6 @@
 import 'package:expense_tracker/core/utils/color_utils.dart';
 import 'package:expense_tracker/core/widgets/build_icon_widget.dart';
+import 'package:expense_tracker/core/navigation/animated_page_route.dart';
 import 'package:expense_tracker/features/profile/presentation/pages/add_category_screen.dart';
 import 'package:expense_tracker/features/profile/presentation/providers/category_provider.dart';
 import 'package:flutter/material.dart';
@@ -25,9 +26,10 @@ class CategoryItem extends ConsumerWidget {
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).push(
-                    MaterialPageRoute(
+                    AnimatedPageRoute(
                       builder: (context) =>
                           AddCategoryScreen(category: category),
+                      animationType: AnimationType.slideUp,
                     ),
                   );
                 },

@@ -1,4 +1,5 @@
 import 'package:expense_tracker/core/theme/theme.dart';
+import 'package:expense_tracker/core/navigation/animated_page_route.dart';
 import 'package:expense_tracker/features/auth/presentation/pages/auth_gate.dart';
 import 'package:expense_tracker/features/auth/presentation/pages/sign_in_screen.dart';
 import 'package:expense_tracker/features/auth/presentation/pages/sign_up_screen.dart';
@@ -28,10 +29,26 @@ class MyApp extends ConsumerWidget {
       darkTheme: AppTheme.getDarkTheme(),
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: AuthGate(),
-      routes: {
-        '/home': (context) => const MainScreen(),
-        '/sign-in': (context) => const SignInScreen(),
-        '/sign-up': (context) => const SignUpScreen(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/home':
+            return AnimatedPageRoute(
+              builder: (context) => const MainScreen(),
+              animationType: AnimationType.slideUp,
+            );
+          case '/sign-in':
+            return AnimatedPageRoute(
+              builder: (context) => const SignInScreen(),
+              animationType: AnimationType.slideLeft,
+            );
+          case '/sign-up':
+            return AnimatedPageRoute(
+              builder: (context) => const SignUpScreen(),
+              animationType: AnimationType.slideLeft,
+            );
+          default:
+            return null;
+        }
       },
     );
   }

@@ -2,6 +2,7 @@ import 'package:expense_tracker/core/theme/theme.dart';
 import 'package:expense_tracker/core/utils/color_utils.dart';
 import 'package:expense_tracker/core/utils/image_paths.dart';
 import 'package:expense_tracker/core/widgets/build_icon_widget.dart';
+import 'package:expense_tracker/core/navigation/animated_page_route.dart';
 import 'package:expense_tracker/features/auth/presentation/provider/auth_provider.dart';
 import 'package:expense_tracker/features/home/presentation/pages/add_transaction_screen.dart';
 import 'package:expense_tracker/features/home/presentation/providers/transaction_provider.dart';
@@ -30,8 +31,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(
-            MaterialPageRoute(
+            AnimatedPageRoute(
               builder: (context) => const AddTransactionScreen(),
+              animationType: AnimationType.slideUp,
             ),
           );
         },
@@ -122,11 +124,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               padding: const EdgeInsets.symmetric(vertical: 32),
                               child: Column(
                                 children: [
-                                  Text(
-                                    '📭',
-                                    style: Theme.of(
-                                      context,
-                                    ).textTheme.displayLarge,
+                                  Image.asset(
+                                    "assets/icons/category_icons/mailbox.png",
+                                    height: 50,
                                   ),
                                   const SizedBox(height: 12),
                                   Text(

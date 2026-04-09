@@ -9,6 +9,7 @@ import 'package:expense_tracker/features/profile/presentation/providers/category
 import 'package:expense_tracker/features/profile/presentation/widgets/category_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:expense_tracker/core/navigation/animated_page_route.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -119,8 +120,9 @@ class ProfileScreen extends ConsumerWidget {
                       ),
                       ElevatedButton(
                         onPressed: () => Navigator.of(context).push(
-                          MaterialPageRoute(
+                          AnimatedPageRoute(
                             builder: (context) => EditProfileScreen(user: user),
+                            animationType: AnimationType.slideUp,
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -205,8 +207,9 @@ class ProfileScreen extends ConsumerWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(
+                          AnimatedPageRoute(
                             builder: (context) => const AddCategoryScreen(),
+                            animationType: AnimationType.slideUp,
                           ),
                         );
                       },
